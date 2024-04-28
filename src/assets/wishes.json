@@ -1,0 +1,5 @@
+[
+    {"wishText" : "have coffee" , "isCompleted"  :  false},
+    {"wishText" : "have tea" , "isCompleted"  :  true},
+    {"wishText" : "leave for the day" , "isCompleted"  :  true}   
+]

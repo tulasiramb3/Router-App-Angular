@@ -1,0 +1,11 @@
+<div class="col-sm-6">
+    <select 
+      class="form-select form-control"
+      [(ngModel)]="listFilter"  
+      (ngModelChange)="updateFilter($event)"    
+      >
+      <option value="0">All</option>
+      <option value="1">Filtered</option>
+      <option value="2">Un-filtered</option>
+    </select>
+    </div>

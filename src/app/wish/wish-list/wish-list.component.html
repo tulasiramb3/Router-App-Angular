@@ -1,0 +1,13 @@
+<div *ngIf="wishes?.length==0; else showItems">
+    No items available
+  </div> 
+  <ng-template #showItems>
+    <ul class = "wish-list">
+      <div class="col-sm-3">
+      <app-wish-list-item 
+            *ngFor="let wish of wishes"
+            [wish] = "wish"
+            ></app-wish-list-item>     
+          </div> 
+    </ul>
+  </ng-template>

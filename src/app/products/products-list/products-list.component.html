@@ -1,0 +1,5 @@
+<div class="container">
+    <div class="p-1" *ngFor="let product of products">
+        <a [routerLink]="['/product',product.Id]"> {{product?.name}} </a>
+    </div>
+</div>

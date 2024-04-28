@@ -1,0 +1,38 @@
+<form class="container p-5" 
+    [formGroup]="contactFormGroup"
+    (ngSubmit)="$event.preventDefault(); submit($event)"
+>
+    <div class="mb-3">
+        <label>Your Name </label>
+        <input type="text" class="form-control" formControlName = "nameControl">
+        <small *ngIf="getBasicRequiredFieldValidations('nameControl')" class="text text-danger">
+            *Name is required
+        </small>
+    </div>
+    <div class="mb-3">
+        <label>Your email </label>
+        <input type="text" class="form-control"  formControlName = "emailControl">
+        <small *ngIf="contactFormGroup.get('emailControl')?.hasError('emailDomainValidator')" class="text text-danger">
+            *domain not allowed
+        </small>
+        <small *ngIf="contactFormGroup.get('emailControl')?.hasError('email')" class="text text-danger">
+            *Enter correct email addresss
+        </small>
+        <small *ngIf="getBasicRequiredFieldValidations('emailControl')" class="text text-danger">
+            *Email is required
+        </small>
+    </div>
+    <div class="mb-3">
+        <label>Your Message </label>
+        <textarea type="text" class="form-control" formControlName= "messageControl"></textarea>
+        <small *ngIf="contactFormGroup.get('messageControl')?.hasError('minlength')" class="text text-danger">
+            *Message must have atleast 10 chars
+        </small>
+        <small *ngIf="getBasicRequiredFieldValidations('messageControl')" class="text text-danger">
+            *Message is required
+        </small>
+    </div>
+    <div class="mb-3">
+        <button type="text" class="btn btn-primary" [disabled]="contactFormGroup.invalid">Submit</button>
+    </div>
+</form>
